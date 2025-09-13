@@ -1,6 +1,7 @@
 package cass.client;
 
 import cass.dto.ProposalDetailsDTO;
+
 import io.quarkus.oidc.token.propagation.reactive.AccessTokenRequestReactiveFilter;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.*;
@@ -9,7 +10,7 @@ import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Path("/api/proposal")
-@RegisterRestClient
+@RegisterRestClient(configKey = "proposal-api")
 @RegisterProvider(AccessTokenRequestReactiveFilter.class)
 @ApplicationScoped
 public interface ProposalRestClient {
